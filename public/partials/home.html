@@ -1,34 +1,33 @@
 <div class="container">
-  <h1>the Galvanize Gazette</h1>
-
-  <div ng-show='addStory'>
+   <button class='btn btn-primary' ng-click='showStory= !showStory'>Add a story</button>
+  <div ng-hide='showStory'>
     <form name='addStory' class='form' ng-submit='addstory()'> 
       <div class='form-group'>
         <label>Title</label>
-        <input type='text' name='title' ng-model='form.title'> 
+        <input type='text' name='title' ng-model='form.title' class="form-control"> 
       </div>
       <div class='form-group'>
         <label>Link</label>
-        <input type='text' name='Link' ng-model='form.link'>
+        <input type='text' name='Link' ng-model='form.link' class="form-control">
       </div>
       <div class='form-group'>
         <label>Image URL</label>
-        <input type='text' name='image' ng-model='form.image'>
+        <input type='text' name='image' ng-model='form.image' class="form-control">
       </div>
       <div class='form-group'>
         <label>Brief Summary</label>
-        <textarea ng-model='form.summary'></textarea>
+        <textarea ng-model='form.summary' class="form-control"></textarea>
       </div>
-      <input type='submit' value='submit' class='btn btn-primary '>
+      <input type='submit' value='submit' class='btn btn-primary'>
     </form>
   </div>
-  <h1>Today's News</h1>
-
-  <div ng-repeat='story in stories' class='storyMain'> 
-    <img ng-src="{{story.image}}" class='mainImg'>
-    <h2><a ng-href="/stories/{{story.id}}">{{story.title}}</a></h2>
-    <p>{{story.summary}}</p>
-
+  <div class="row">
+    <h1>Today's News</h1>
+    <div ng-repeat='story in stories' class='col-md-4'> 
+      <img ng-src="{{story.image}}" class='mainImg'>
+      <h2><a ng-href="/stories/{{story.id}}">{{story.title}}</a></h2>
+      <p>{{story.summary}}</p>
+    </div>
   </div>
 
 </div>

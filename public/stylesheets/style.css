@@ -9,6 +9,7 @@ a {
 
 .storyMain{
   max-width: 300px;
+  display: inline-block;
 }
 
 .mainImg{
@@ -18,4 +19,10 @@ a {
 
 .imageShow{
   max-width: 100%;
+}
+
+.header{
+  background: lightgray;
+  padding: 10px;
+  margin: 10px;
 }

@@ -5,14 +5,16 @@ var GGazette = angular.module('GGazette', ['ngRoute'])
 }])
 
 .controller('homeCtrl', ['$scope', '$http' ,function($scope, $http){
+  $scope.showStory = true
 
-  $http.get('/allStories').then(function(stories){
-    console.log(stories)
+  $http.get('/allStories').then(function(stories){ 
     $scope.stories = stories.data.stories
   })
 
   $scope.addstory = function(){
     $http.post('/addStory', {form : $scope.form})
+    $scope.form = {}
+    $scope.showStory = true
   }
 
 }])
@@ -63,6 +65,9 @@ var GGazette = angular.module('GGazette', ['ngRoute'])
       form: $scope.form,
       story_id : $routeParams.id
     })
+
+    $scope.comments.push({text: $scope.form.comment})
+    $scope.form = {}
   }
 
 
