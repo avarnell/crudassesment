@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="page-header">
+    <h1>{{story.title}}</h1>
+  </div>
+
+  <div class="row">
+    <div class='col-md-3'>
+      <img ng-src="{{story.image}}" class='imageShow'>
+    </div>
+    <div class='col-md-9'>
+      <h4>{{story.summary}}</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class='col-md-6'>
+      <h2>Add a comment</h2>
+
+      <form ng-submit='addComment()'>
+        <textarea ng-model='form.comment'></textarea>
+        <input type='submit' value='add comment'>
+      </form>
+
+      <h2>Comments</h2>
+      <div ng-repeat='comment in comments' class='well'>
+        <p>{{comment.text}}</p>
+      </div>
+    </div>
+
+
+    <div class='col-md-6'>
+      <h2>Comment Word Count</h2>
+        <ul>
+          <li ng-repeat='word in mostUsedWords'>{{word.word}} ({{word.count}})</li>
+
+        </ul>
+      <h2>Excluded Words</h2> 
+        <p>
+        'the',
+        'if',
+        'I',
+        "a",
+        "of,
+        'not',
+        'is' 
+        </p>
+    </div>
+
+  </div>
+
+</div>

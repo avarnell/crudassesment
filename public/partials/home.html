@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>the Galvanize Gazette</h1>
+
+  <div ng-show='addStory'>
+    <form name='addStory' class='form' ng-submit='addstory()'> 
+      <div class='form-group'>
+        <label>Title</label>
+        <input type='text' name='title' ng-model='form.title'> 
+      </div>
+      <div class='form-group'>
+        <label>Link</label>
+        <input type='text' name='Link' ng-model='form.link'>
+      </div>
+      <div class='form-group'>
+        <label>Image URL</label>
+        <input type='text' name='image' ng-model='form.image'>
+      </div>
+      <div class='form-group'>
+        <label>Brief Summary</label>
+        <textarea ng-model='form.summary'></textarea>
+      </div>
+      <input type='submit' value='submit' class='btn btn-primary '>
+    </form>
+  </div>
+  <h1>Today's News</h1>
+
+  <div ng-repeat='story in stories' class='storyMain'> 
+    <img ng-src="{{story.image}}" class='mainImg'>
+    <h2><a ng-href="/stories/{{story.id}}">{{story.title}}</a></h2>
+    <p>{{story.summary}}</p>
+
+  </div>
+
+</div>
